@@ -188,7 +188,13 @@ function About() {
           </div>
           <div className="r">
             <span className="k">Status</span>
-            <span className="v ok">● Open to collaborate</span>
+            <span className="v ok">
+              <span className="ping">
+                <i className="a" />
+                <i />
+              </span>
+              Open to collaborate
+            </span>
           </div>
         </div>
       </div>

@@ -219,7 +219,7 @@ nav.scrolled .navbar-inner {
 .nav-ctrls {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
 }
 .nav-links {
   flex: 1;
@@ -263,6 +263,9 @@ nav.scrolled .navbar-inner {
 .nav-btn:hover {
   background: var(--fill-hover);
   color: var(--fg);
+}
+.nav-toggle {
+  display: none;
 }
 .nav-btn .star {
   color: var(--yellow);
@@ -326,18 +329,19 @@ nav.scrolled .navbar-inner {
   letter-spacing: 0.1em;
   margin-bottom: 22px;
 }
-.status .ping {
+.ping {
   position: relative;
   width: 8px;
   height: 8px;
+  flex: none;
 }
-.status .ping i {
+.ping i {
   position: absolute;
   inset: 0;
   border-radius: 50%;
   background: var(--green);
 }
-.status .ping i.a {
+.ping i.a {
   animation: ping 1.6s cubic-bezier(0, 0, 0.2, 1) infinite;
 }
 @keyframes ping {
@@ -581,6 +585,9 @@ h2.title {
 }
 .facts .v.ok {
   color: var(--green);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
 }
 
 /* projects */
@@ -994,28 +1001,50 @@ body.term .watermark {
     gap: 40px;
     padding-top: 104px;
   }
-  .nav-links {
-    gap: 0;
+}
+
+/* collapse the section nav into a hamburger dropdown on mobile */
+@media (max-width: 768px) {
+  .nav-toggle {
+    display: flex;
   }
-  .nav-link span {
+  .navbar-inner {
+    position: relative;
+    justify-content: space-between;
+  }
+  .nav-links {
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 0;
+    right: 0;
+    flex: none;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4px;
+    padding: 8px;
+    border-radius: 16px;
+    background: var(--nav-bg);
+    backdrop-filter: blur(18px);
+    border: 1px solid var(--border);
+    box-shadow: 0 24px 50px -20px #000;
     display: none;
   }
+  .nav-links.open {
+    display: flex;
+  }
   .nav-link {
-    padding: 8px;
+    justify-content: flex-start;
+    padding: 11px 14px;
+    gap: 11px;
+    font-size: 14px;
   }
 }
 
-/* compact navbar on phones so it never overflows */
+/* keep the bar compact on small phones */
 @media (max-width: 560px) {
-  .logo .wm {
-    display: none;
-  }
   .navbar-inner {
     gap: 8px;
     padding: 8px 10px;
-  }
-  .nav-ctrls {
-    gap: 6px;
   }
   .nav-btn {
     padding: 8px;

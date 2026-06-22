@@ -1,10 +1,12 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import {
   ChatIcon,
+  CloseIcon,
   GridIcon,
   HomeIcon,
   LayersIcon,
   LogoCode,
+  MenuIcon,
   MoonIcon,
   SunIcon,
   TerminalIcon,
@@ -27,6 +29,8 @@ export default function Navbar({ onOpenTerm }: { onOpenTerm: () => void }) {
   const [scrolled, setScrolled] = useState(false)
   const [active, setActive] = useState('home')
   const [theme, setTheme] = useState<'dark' | 'light'>(initialTheme)
+  const [menuOpen, setMenuOpen] = useState(false)
+  const navRef = useRef<HTMLElement>(null)
 
   useEffect(() => {
     const onScroll = () => {
@@ -47,8 +51,18 @@ export default function Navbar({ onOpenTerm }: { onOpenTerm: () => void }) {
     localStorage.setItem('theme', theme)
   }, [theme])
 
+  // close the mobile menu when clicking outside the navbar
+  useEffect(() => {
+    if (!menuOpen) return
+    const onDown = (e: MouseEvent) => {
+      if (navRef.current && !navRef.current.contains(e.target as Node)) setMenuOpen(false)
+    }
+    document.addEventListener('mousedown', onDown)
+    return () => document.removeEventListener('mousedown', onDown)
+  }, [menuOpen])
+
   return (
-    <nav className={scrolled ? 'scrolled' : ''}>
+    <nav ref={navRef} className={scrolled ? 'scrolled' : ''}>
       <div className="navbar">
         <div className="navbar-inner">
           <a href="#home" className="logo">
@@ -60,9 +74,14 @@ export default function Navbar({ onOpenTerm }: { onOpenTerm: () => void }) {
             </span>
           </a>
 
-          <div className="nav-links">
+          <div className={`nav-links${menuOpen ? ' open' : ''}`}>
             {LINKS.map(({ id, label, Icon }) => (
-              <a key={id} href={`#${id}`} className={`nav-link${active === id ? ' on' : ''}`}>
+              <a
+                key={id}
+                href={`#${id}`}
+                className={`nav-link${active === id ? ' on' : ''}`}
+                onClick={() => setMenuOpen(false)}
+              >
                 <Icon />
                 <span>{label}</span>
               </a>
@@ -86,6 +105,16 @@ export default function Navbar({ onOpenTerm }: { onOpenTerm: () => void }) {
               style={{ color: 'var(--muted)' }}
             >
               <TerminalIcon />
+            </button>
+            <button
+              className="nav-btn nav-toggle"
+              onClick={() => setMenuOpen((o) => !o)}
+              title="Menu"
+              aria-label="Toggle menu"
+              aria-expanded={menuOpen}
+              style={{ color: 'var(--muted)' }}
+            >
+              {menuOpen ? <CloseIcon /> : <MenuIcon />}
             </button>
           </div>
         </div>
