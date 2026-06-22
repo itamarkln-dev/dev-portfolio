@@ -8,20 +8,16 @@ function escapeHtml(s: string) {
 
 const CMDS: Record<string, () => string> = {
   help: () =>
-    'Available commands:\n  <span class="accent">about</span>      who I am\n  <span class="accent">skills</span>     tech stack\n  <span class="accent">projects</span>   selected work\n  <span class="accent">experience</span> career timeline\n  <span class="accent">contact</span>    how to reach me\n  <span class="accent">socials</span>    links\n  <span class="accent">neofetch</span>   system info\n  <span class="accent">clear</span>      clear screen\n  <span class="accent">gui</span>        exit to the visual site',
+    'Available commands:\n  <span class="accent">about</span>      who I am\n  <span class="accent">skills</span>     tech stack\n  <span class="accent">projects</span>   selected work\n  <span class="accent">contact</span>    how to reach me\n  <span class="accent">socials</span>    links\n  <span class="accent">clear</span>      clear screen\n  <span class="accent">gui</span>        exit to the visual site',
   about: () =>
     'Senior software engineer who builds the whole picture — clean,\ndependable systems, end to end. I turn hard problems into\nscalable, production-ready products. Clean, modular, built to last.',
   skills: () =>
     'languages   : TypeScript, JavaScript, Python, Go\nframeworks  : React, Next.js, Node.js, Tailwind\ndata        : PostgreSQL, MongoDB, Redis, GraphQL\nplatform    : Docker, AWS, Git, Linux',
   projects: () =>
     '01 Real-time Data Platform   <span class="muted">react · websockets · node</span>\n02 Developer Toolkit         <span class="muted">go · cli · oss</span>\n03 AI Review Assistant       <span class="muted">python · llm · apis</span>\n04 Privacy-first Finance App <span class="muted">next.js · sqlite · pwa</span>\ntype <span class="accent">gui</span> to view them visually.',
-  experience: () =>
-    '2024 — now   Senior Software Engineer\n2021 — 2024  Full-Stack Developer\n2019 — 2021  Software Engineer',
   contact: () =>
     'email   : itamar.klein@example.com\ngithub  : github.com/itamarkln-dev\nlinkedin: /in/itamar-klein',
   socials: () => 'github.com/itamarkln-dev\nlinkedin.com/in/itamar-klein\nx.com/itamar',
-  neofetch: () =>
-    '<span class="accent">itamar@portfolio</span>\n-----------------\n<span class="accent">OS</span>: PortfolioOS\n<span class="accent">Role</span>: Senior Software Engineer\n<span class="accent">Stack</span>: TS · React · Node · Cloud\n<span class="accent">Uptime</span>: 5+ years\n<span class="accent">Status</span>: open to work',
   whoami: () => 'itamar-klein',
 }
 

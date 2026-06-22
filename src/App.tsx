@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react'
 import Background from './components/portfolio/Background'
 import Navbar from './components/portfolio/Navbar'
 import Sections from './components/portfolio/Sections'
-import Dock from './components/portfolio/Dock'
 import Terminal from './components/portfolio/Terminal'
 
 function App() {
@@ -35,7 +34,6 @@ function App() {
       <Background />
       <Navbar onOpenTerm={() => setTerm(true)} />
       <Sections />
-      <Dock />
       <Terminal open={term} onClose={() => setTerm(false)} />
     </>
   )

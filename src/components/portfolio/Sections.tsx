@@ -1,8 +1,8 @@
-import { useState } from 'react'
 import { GithubMark, LinkedinMark, MailIcon, SendIcon } from './icons'
 
 const GITHUB_USER = 'https://github.com/itamarkln-dev'
 const GITHUB_REPOS = 'https://github.com/itamarkln-dev?tab=repositories'
+const LINKEDIN_URL = 'https://www.linkedin.com/in/itamar-klein-8b56971a1/'
 
 const PROJECTS = [
   {
@@ -128,7 +128,7 @@ function Hero() {
             <a href={GITHUB_USER} target="_blank" rel="noopener" title="GitHub">
               <GithubMark />
             </a>
-            <a href="#" title="LinkedIn">
+            <a href={LINKEDIN_URL} target="_blank" rel="noopener" title="LinkedIn">
               <LinkedinMark />
             </a>
             <a href="#" title="Email">
@@ -287,53 +287,29 @@ function Experience() {
 }
 
 function Contact() {
-  const [sent, setSent] = useState(false)
   return (
     <section id="contact" className="block wrap">
-      <div className="shead reveal">
-        <div className="kick">Contact</div>
+      <div className="shead reveal" style={{ textAlign: 'center' }}>
+        <div className="kick" style={{ justifyContent: 'center' }}>
+          Contact
+        </div>
         <h2 className="title">Let's talk.</h2>
       </div>
-      <div className="contact-grid">
-        <div className="reveal">
-          <p className="sub">
-            Have a role, a project, or just want to chat? I usually reply within a day or two.
-          </p>
-          <a className="cmail" href="#">
-            itamar.klein@example.com
+      <div className="reveal" style={{ textAlign: 'center' }}>
+        <p className="sub" style={{ marginLeft: 'auto', marginRight: 'auto' }}>
+          Have a role, a project, or just want to chat? I usually reply within a day or two.
+        </p>
+        <a className="cmail" href="mailto:itamarkln.dev@gmail.com">
+          itamarkln.dev@gmail.com
+        </a>
+        <div className="csoc" style={{ justifyContent: 'center' }}>
+          <a href={GITHUB_USER} target="_blank" rel="noopener">
+            GitHub
           </a>
-          <div className="csoc">
-            <a href={GITHUB_USER} target="_blank" rel="noopener">
-              GitHub
-            </a>
-            <a href="#">LinkedIn</a>
-            <a href="#">Twitter / X</a>
-            <a href="#">Résumé</a>
-          </div>
+          <a href={LINKEDIN_URL} target="_blank" rel="noopener">
+            LinkedIn
+          </a>
         </div>
-        <form
-          className="form reveal"
-          onSubmit={(e) => {
-            e.preventDefault()
-            setSent(true)
-          }}
-        >
-          <div className="fld">
-            <label>// name</label>
-            <input type="text" placeholder="Ada Lovelace" required />
-          </div>
-          <div className="fld">
-            <label>// email</label>
-            <input type="email" placeholder="you@example.com" required />
-          </div>
-          <div className="fld">
-            <label>// message</label>
-            <textarea placeholder="Hi Itamar, I'd love to talk about…" required />
-          </div>
-          <button type="submit" className="send">
-            {sent ? '✓ Message sent — thank you!' : 'Send Message'}
-          </button>
-        </form>
       </div>
     </section>
   )
@@ -343,13 +319,6 @@ function Footer() {
   return (
     <footer className="wrap">
       <span>© 2026 Itamar Klein</span>
-      <div className="fl">
-        <a href={GITHUB_USER} target="_blank" rel="noopener">
-          github
-        </a>
-        <a href="#">linkedin</a>
-        <a href="#">email</a>
-      </div>
       <span>built with care</span>
     </footer>
   )
