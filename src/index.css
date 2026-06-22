@@ -339,7 +339,7 @@ nav.scrolled .navbar-inner {
   position: absolute;
   inset: 0;
   border-radius: 50%;
-  background: var(--green);
+  background: var(--blue-400);
 }
 .ping i.a {
   animation: ping 1.6s cubic-bezier(0, 0, 0.2, 1) infinite;
@@ -361,8 +361,33 @@ h1.name {
 h1.name .role {
   display: block;
   color: var(--zinc-500);
-  font-size: clamp(26px, 5vw, 64px);
-  margin-top: 4px;
+  font-size: clamp(20px, 3vw, 32px);
+  font-weight: 800;
+  letter-spacing: normal;
+  line-height: 1.15;
+  margin-top: 10px;
+  min-height: 1.15em;
+}
+h1.name .role .cursor {
+  display: inline-block;
+  width: 3px;
+  height: 0.95em;
+  margin-left: 0.14em;
+  border-radius: 2px;
+  vertical-align: -0.13em;
+  background: var(--fg);
+}
+h1.name .role .cursor.blink {
+  animation: caret 1.05s ease-in-out infinite;
+}
+@keyframes caret {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
 }
 .desc {
   font-size: clamp(17px, 2.4vw, 21px);
@@ -456,7 +481,7 @@ h1.name .role {
 }
 .avatar-wrap:hover .avatar img {
   filter: grayscale(0);
-  transform: scale(1);
+  transform: scale(1.02);
 }
 .avatar .ov {
   position: absolute;
@@ -584,7 +609,7 @@ h2.title {
   font-weight: 700;
 }
 .facts .v.ok {
-  color: var(--green);
+  color: var(--blue-400);
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -795,16 +820,21 @@ h2.title {
   flex-wrap: wrap;
 }
 .csoc a {
-  padding: 11px 18px;
-  border-radius: 30px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 13px;
+  border-radius: 50%;
   border: 1px solid var(--border);
   color: var(--muted);
-  font-weight: 700;
-  font-size: 14px;
   transition: 0.25s;
 }
+.csoc a svg {
+  width: 20px;
+  height: 20px;
+}
 .csoc a:hover {
-  border-color: var(--primary);
+  background: var(--fill-hover);
   color: var(--fg);
 }
 .form .fld {
@@ -855,11 +885,11 @@ h2.title {
   background: #1d4ed8;
 }
 
-footer {
+footer.wrap {
   position: relative;
   z-index: 10;
   border-top: 1px solid var(--border);
-  padding: 30px 0 40px;
+  padding: 44px 22px 60px;
   display: flex;
   justify-content: space-between;
   align-items: center;

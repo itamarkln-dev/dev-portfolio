@@ -1,24 +1,12 @@
 import { useEffect, useRef, useState } from 'react'
-import {
-  ChatIcon,
-  CloseIcon,
-  GridIcon,
-  HomeIcon,
-  LayersIcon,
-  LogoCode,
-  MenuIcon,
-  MoonIcon,
-  SunIcon,
-  TerminalIcon,
-  UserIcon,
-} from './icons'
+import { CloseIcon, LogoCode, MenuIcon, MoonIcon, SunIcon, TerminalIcon } from './icons'
 
 const LINKS = [
-  { id: 'home', label: 'Home', Icon: HomeIcon },
-  { id: 'about', label: 'About', Icon: UserIcon },
-  { id: 'projects', label: 'Work', Icon: GridIcon },
-  { id: 'skills', label: 'Skills', Icon: LayersIcon },
-  { id: 'contact', label: 'Contact', Icon: ChatIcon },
+  { id: 'home', label: 'Home' },
+  { id: 'about', label: 'About' },
+  { id: 'projects', label: 'Work' },
+  { id: 'skills', label: 'Skills' },
+  { id: 'contact', label: 'Contact' },
 ]
 
 function initialTheme(): 'dark' | 'light' {
@@ -75,15 +63,14 @@ export default function Navbar({ onOpenTerm }: { onOpenTerm: () => void }) {
           </a>
 
           <div className={`nav-links${menuOpen ? ' open' : ''}`}>
-            {LINKS.map(({ id, label, Icon }) => (
+            {LINKS.map(({ id, label }) => (
               <a
                 key={id}
                 href={`#${id}`}
                 className={`nav-link${active === id ? ' on' : ''}`}
                 onClick={() => setMenuOpen(false)}
               >
-                <Icon />
-                <span>{label}</span>
+                {label}
               </a>
             ))}
           </div>

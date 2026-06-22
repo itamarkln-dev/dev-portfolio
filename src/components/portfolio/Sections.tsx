@@ -1,4 +1,5 @@
 import { GithubMark, LinkedinMark, MailIcon, SendIcon } from './icons'
+import Typewriter from './Typewriter'
 
 const GITHUB_USER = 'https://github.com/itamarkln-dev'
 const GITHUB_REPOS = 'https://github.com/itamarkln-dev?tab=repositories'
@@ -109,7 +110,16 @@ function Hero() {
           Open for collaboration
         </span>
         <h1 className="name">
-          Itamar Klein<span className="role">Senior Software Engineer</span>
+          Itamar Klein
+          <span className="role">
+            <Typewriter
+              phrases={[
+                'Senior software engineer',
+                'Full-stack developer',
+                'Building products that last',
+              ]}
+            />
+          </span>
         </h1>
         <p className="desc">
           I turn hard problems into <b>scalable, production-ready products</b> — clean, modular,
@@ -117,24 +127,12 @@ function Hero() {
         </p>
         <div className="actions">
           <a href="#projects" className="btn btn-white">
-            Selected Works
+            View My Work
           </a>
           <a href="#contact" className="btn btn-blue">
-            Get in Touch
+            Let's Talk
             <SendIcon />
           </a>
-          <div className="socials">
-            <div className="div" />
-            <a href={GITHUB_USER} target="_blank" rel="noopener" title="GitHub">
-              <GithubMark />
-            </a>
-            <a href={LINKEDIN_URL} target="_blank" rel="noopener" title="LinkedIn">
-              <LinkedinMark />
-            </a>
-            <a href="#" title="Email">
-              <MailIcon />
-            </a>
-          </div>
         </div>
       </div>
       <div className="avatar-wrap">
@@ -295,21 +293,28 @@ function Contact() {
         <div className="kick" style={{ justifyContent: 'center' }}>
           Contact
         </div>
-        <h2 className="title">Let's talk.</h2>
+        <h2 className="title">Let's build together.</h2>
       </div>
       <div className="reveal" style={{ textAlign: 'center' }}>
         <p className="sub" style={{ marginLeft: 'auto', marginRight: 'auto' }}>
-          Have a role, a project, or just want to chat? I usually reply within a day or two.
+          I'm always up for interesting challenges and good people to build with. Tell me what
+          you're working on — I usually reply within a day or two.
         </p>
-        <a className="cmail" href="mailto:itamarkln.dev@gmail.com">
-          itamarkln.dev@gmail.com
-        </a>
-        <div className="csoc" style={{ justifyContent: 'center' }}>
-          <a href={GITHUB_USER} target="_blank" rel="noopener">
-            GitHub
+        <div className="csoc" style={{ justifyContent: 'center', marginTop: '28px' }}>
+          <a href={GITHUB_USER} target="_blank" rel="noopener" aria-label="GitHub" title="GitHub">
+            <GithubMark />
           </a>
-          <a href={LINKEDIN_URL} target="_blank" rel="noopener">
-            LinkedIn
+          <a
+            href={LINKEDIN_URL}
+            target="_blank"
+            rel="noopener"
+            aria-label="LinkedIn"
+            title="LinkedIn"
+          >
+            <LinkedinMark />
+          </a>
+          <a href="mailto:itamarkln.dev@gmail.com" aria-label="Gmail" title="Gmail">
+            <MailIcon />
           </a>
         </div>
       </div>
