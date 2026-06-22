@@ -106,7 +106,7 @@ function Hero() {
             <i className="a" />
             <i />
           </span>{' '}
-          Available for work
+          Open for collaboration
         </span>
         <h1 className="name">
           Itamar Klein<span className="role">Senior Software Engineer</span>
@@ -183,16 +183,12 @@ function About() {
             <span className="v">Full-stack</span>
           </div>
           <div className="r">
-            <span className="k">Location</span>
-            <span className="v">Your City, XX</span>
-          </div>
-          <div className="r">
             <span className="k">Experience</span>
             <span className="v">5+ years</span>
           </div>
           <div className="r">
             <span className="k">Status</span>
-            <span className="v ok">● Open to work</span>
+            <span className="v ok">● Open to collaborate</span>
           </div>
         </div>
       </div>

@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import {
   ChatIcon,
-  GithubMark,
   GridIcon,
   HomeIcon,
   LayersIcon,
@@ -11,9 +10,6 @@ import {
   TerminalIcon,
   UserIcon,
 } from './icons'
-
-const GITHUB_USER = 'https://github.com/itamarkln-dev'
-const STARS_REPO = 'https://api.github.com/repos/itamarkln-dev/itamarkln-dev'
 
 const LINKS = [
   { id: 'home', label: 'Home', Icon: HomeIcon },
@@ -29,7 +25,6 @@ function initialTheme(): 'dark' | 'light' {
 
 export default function Navbar({ onOpenTerm }: { onOpenTerm: () => void }) {
   const [scrolled, setScrolled] = useState(false)
-  const [stars, setStars] = useState('·')
   const [active, setActive] = useState('home')
   const [theme, setTheme] = useState<'dark' | 'light'>(initialTheme)
 
@@ -45,15 +40,6 @@ export default function Navbar({ onOpenTerm }: { onOpenTerm: () => void }) {
     }
     window.addEventListener('scroll', onScroll)
     return () => window.removeEventListener('scroll', onScroll)
-  }, [])
-
-  useEffect(() => {
-    fetch(STARS_REPO)
-      .then((r) => r.json())
-      .then((d) => {
-        if (typeof d.stargazers_count === 'number') setStars(String(d.stargazers_count))
-      })
-      .catch(() => {})
   }, [])
 
   useEffect(() => {
@@ -84,12 +70,6 @@ export default function Navbar({ onOpenTerm }: { onOpenTerm: () => void }) {
           </div>
 
           <div className="nav-ctrls">
-            <a className="nav-btn" href={GITHUB_USER} target="_blank" rel="noopener" title="GitHub">
-              <GithubMark size={20} />
-              <b>
-                <span className="star">★</span> <span>{stars}</span>
-              </b>
-            </a>
             <button
               className="nav-btn"
               onClick={() => setTheme((t) => (t === 'dark' ? 'light' : 'dark'))}
