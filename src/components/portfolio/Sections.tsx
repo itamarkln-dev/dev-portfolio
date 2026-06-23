@@ -36,33 +36,53 @@ const PROJECTS = [
   },
 ]
 
-const SKILLS = [
+const DEVICON = 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons'
+
+const SKILLS: { group: string; items: { name: string; icon?: string }[] }[] = [
   {
-    group: 'Languages',
+    group: 'Languages & Frontend',
     items: [
-      { name: 'TypeScript', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg' },
-      { name: 'JavaScript', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg' },
-      { name: 'Python', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg' },
-      { name: 'Go', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/go/go-original.svg' },
+      { name: 'TypeScript', icon: `${DEVICON}/typescript/typescript-original.svg` },
+      { name: 'JavaScript', icon: `${DEVICON}/javascript/javascript-original.svg` },
+      { name: 'HTML5', icon: `${DEVICON}/html5/html5-original.svg` },
+      { name: 'CSS3', icon: `${DEVICON}/css3/css3-original.svg` },
+      { name: 'Sass', icon: `${DEVICON}/sass/sass-original.svg` },
+      { name: 'Vue.js', icon: `${DEVICON}/vuejs/vuejs-original.svg` },
+      { name: 'Nuxt.js', icon: `${DEVICON}/nuxtjs/nuxtjs-original.svg` },
+      { name: 'React', icon: `${DEVICON}/react/react-original.svg` },
+      { name: 'Angular', icon: `${DEVICON}/angularjs/angularjs-original.svg` },
+      { name: 'Tailwind', icon: `${DEVICON}/tailwindcss/tailwindcss-original.svg` },
+      { name: 'Vite', icon: `${DEVICON}/vitejs/vitejs-original.svg` },
     ],
   },
   {
-    group: 'Frameworks',
+    group: 'Backend & Data',
     items: [
-      { name: 'React', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg' },
-      { name: 'Next.js', icon: 'https://cdn.simpleicons.org/nextdotjs/white' },
-      { name: 'Node.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg' },
-      { name: 'Tailwind', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg' },
+      { name: 'Node.js', icon: `${DEVICON}/nodejs/nodejs-original.svg` },
+      { name: 'NestJS', icon: `${DEVICON}/nestjs/nestjs-original.svg` },
+      { name: 'Express' },
+      { name: 'REST APIs' },
+      { name: 'GraphQL', icon: `${DEVICON}/graphql/graphql-plain.svg` },
+      { name: 'OpenAPI / Swagger', icon: `${DEVICON}/swagger/swagger-original.svg` },
+      { name: 'WebSockets' },
+      { name: 'PostgreSQL', icon: `${DEVICON}/postgresql/postgresql-original.svg` },
+      { name: 'TypeORM' },
+      { name: 'Redis', icon: `${DEVICON}/redis/redis-original.svg` },
+      { name: 'MongoDB', icon: `${DEVICON}/mongodb/mongodb-original.svg` },
     ],
   },
   {
-    group: 'Data & Platform',
+    group: 'Architecture & Tools',
     items: [
-      { name: 'PostgreSQL', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg' },
-      { name: 'MongoDB', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg' },
-      { name: 'Docker', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg' },
-      { name: 'AWS', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg' },
-      { name: 'Git', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg' },
+      { name: 'Microservices' },
+      { name: 'WebRTC' },
+      { name: 'Streaming Media' },
+      { name: 'Docker', icon: `${DEVICON}/docker/docker-original.svg` },
+      { name: 'Kubernetes', icon: `${DEVICON}/kubernetes/kubernetes-plain.svg` },
+      { name: 'Linux', icon: `${DEVICON}/linux/linux-original.svg` },
+      { name: 'Nginx', icon: `${DEVICON}/nginx/nginx-original.svg` },
+      { name: 'CI/CD' },
+      { name: 'Git', icon: `${DEVICON}/git/git-original.svg` },
     ],
   },
 ]
@@ -72,26 +92,42 @@ const EXPERIENCE = [
     dt: '2024 — Present',
     role: 'Senior Software Engineer',
     points: [
-      'Lead product and platform work end to end, partnering across design and product.',
-      'Drove performance and reliability improvements reaching a large user base.',
-      'Mentor engineers and set the standards other teams build on.',
+      'Build full-stack features for AI-driven fintech products in the Israeli pension and retirement space.',
+      'Lead backend infrastructure and API design — owning service architecture, API contracts, and engineering standards across the platform.',
+      'Backend in NestJS with PostgreSQL and TypeORM; frontends in Vue, Nuxt, and Tailwind.',
     ],
   },
   {
-    dt: '2021 — 2024',
-    role: 'Full-Stack Developer',
+    dt: '2022 — 2024',
+    role: 'Software Team Leader',
     points: [
-      'Built and ran core services used by millions of people.',
-      'Led behind-the-scenes upgrades that made products faster and more dependable.',
+      'Led a team of ~8 engineers building an on-premise platform for debriefing multimedia and telemetry data.',
+      'Designed and implemented a microservice architecture focused on scaling and deployment.',
+      'Owned hiring, technical planning, and mentoring.',
+    ],
+  },
+  {
+    dt: '2021 — 2022',
+    role: 'Technical Lead',
+    points: [
+      'Tech lead across frontend and backend, driving architecture design and code standards.',
+      'Led a system-wide transition to a stateless, horizontally scalable architecture.',
+      'Established clean-code practices and owned the codebase from code review to merge.',
     ],
   },
   {
     dt: '2019 — 2021',
     role: 'Software Engineer',
     points: [
-      'First engineering hire — shipped a product from zero to thousands of daily users.',
-      'Owned features across the entire stack, front to back.',
+      'Designed and built a multimedia streaming application on a microservices, 3-tier architecture.',
+      'MEAN stack (MongoDB, Express, Angular, Node/NestJS) with media servers (Wowza, Kurento, Janus).',
+      'Streaming over WebRTC, HLS, MPEG-DASH, and RTSP.',
     ],
+  },
+  {
+    dt: '2018 — 2019',
+    role: 'Full-Stack Developer',
+    points: ['Built web applications with React and Angular (part-time).'],
   },
 ]
 
@@ -185,7 +221,7 @@ function About() {
           </div>
           <div className="r">
             <span className="k">Experience</span>
-            <span className="v">8+ years</span>
+            <span className="v">7+ years</span>
           </div>
           <div className="r">
             <span className="k">Status</span>
@@ -253,7 +289,7 @@ function Skills() {
             <div className="skrow">
               {g.items.map((s) => (
                 <span key={s.name} className="sk">
-                  <img src={s.icon} alt="" />
+                  {s.icon && <img src={s.icon} alt="" />}
                   {s.name}
                 </span>
               ))}
