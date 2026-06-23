@@ -162,13 +162,16 @@ function About() {
             foundations underneath, the logic in the middle, and the interface people actually touch.
           </p>
           <p>
-            My approach is simple: treat every piece of work with care. I build things that are{' '}
-            <b>clean, dependable, and made to last</b> — because the best products are the ones a
-            whole team can understand, trust, and keep improving.
+            I build software that's <b>clean, reliable, and made to last</b>, and I own it end to
+            end — from system design down to the details users actually feel. I move fast without
+            cutting corners, and I deliver code that's easy to trust, extend, and scale as a product
+            grows.
           </p>
           <p>
-            I care about good collaboration: clear communication, honest scoping, and shipping in
-            small, reliable steps.
+            I'm also genuinely easy to work with: <b>clear communication, honest scoping, and
+            dependable delivery</b>. I stay calm under pressure, keep you in the loop at every step,
+            and turn an idea or a rough brief into a product that ships — and keeps working long
+            after launch.
           </p>
         </div>
         <div className="facts reveal">
@@ -182,7 +185,7 @@ function About() {
           </div>
           <div className="r">
             <span className="k">Experience</span>
-            <span className="v">5+ years</span>
+            <span className="v">8+ years</span>
           </div>
           <div className="r">
             <span className="k">Status</span>
