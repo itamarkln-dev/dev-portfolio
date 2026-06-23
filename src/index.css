@@ -889,7 +889,7 @@ footer.wrap {
   position: relative;
   z-index: 10;
   border-top: 1px solid var(--border);
-  padding: 44px 22px 60px;
+  padding: 32px 22px 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -1078,5 +1078,21 @@ body.term .watermark {
   }
   .nav-btn {
     padding: 8px;
+  }
+}
+
+/* roomier horizontal padding on phones */
+@media (max-width: 640px) {
+  .wrap {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  .hero {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  footer.wrap {
+    padding-left: 30px;
+    padding-right: 30px;
   }
 }

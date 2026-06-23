@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react'
 
-const TYPE_MS = 65
-const DELETE_MS = 30
-const HOLD_MS = 1700
-const GAP_MS = 450
+const TYPE_MS = 52
+const DELETE_MS = 26
+const HOLD_MS = 1400
+const GAP_MS = 320
 
 export default function Typewriter({ phrases }: { phrases: string[] }) {
   const [index, setIndex] = useState(0)

@@ -78,20 +78,20 @@ export default function Navbar({ onOpenTerm }: { onOpenTerm: () => void }) {
           <div className="nav-ctrls">
             <button
               className="nav-btn"
+              onClick={onOpenTerm}
+              title="Terminal mode"
+              style={{ color: 'var(--muted)' }}
+            >
+              <TerminalIcon />
+            </button>
+            <button
+              className="nav-btn"
               onClick={() => setTheme((t) => (t === 'dark' ? 'light' : 'dark'))}
               title={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
               aria-label="Toggle theme"
               style={{ color: 'var(--muted)' }}
             >
               {theme === 'dark' ? <SunIcon /> : <MoonIcon />}
-            </button>
-            <button
-              className="nav-btn"
-              onClick={onOpenTerm}
-              title="Terminal mode"
-              style={{ color: 'var(--muted)' }}
-            >
-              <TerminalIcon />
             </button>
             <button
               className="nav-btn nav-toggle"
