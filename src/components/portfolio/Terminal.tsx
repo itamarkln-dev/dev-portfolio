@@ -8,16 +8,15 @@ function escapeHtml(s: string) {
 
 const CMDS: Record<string, () => string> = {
   help: () =>
-    'Available commands:\n  <span class="accent">about</span>      who I am\n  <span class="accent">skills</span>     tech stack\n  <span class="accent">projects</span>   selected work\n  <span class="accent">contact</span>    how to reach me\n  <span class="accent">socials</span>    links\n  <span class="accent">clear</span>      clear screen\n  <span class="accent">gui</span>        exit to the visual site',
+    'Available commands:\n  <span class="accent">about</span>      who I am\n  <span class="accent">skills</span>     tech stack\n  <span class="accent">projects</span>   what I\'m building\n  <span class="accent">contact</span>    how to reach me\n  <span class="accent">clear</span>      clear screen\n  <span class="accent">gui</span>        exit to the visual site',
   about: () =>
-    'Senior software engineer who builds the whole picture — clean,\ndependable systems, end to end. I turn hard problems into\nscalable, production-ready products. Clean, modular, built to last.',
+    'Senior software engineer building clean, reliable software\nend to end. I lead backend infrastructure and API design,\nand ship AI-driven fintech products. Easy to work with,\nhonest about scope, and dependable from first sketch to launch.',
   skills: () =>
-    'languages   : TypeScript, JavaScript, Python, Go\nframeworks  : React, Next.js, Node.js, Tailwind\ndata        : PostgreSQL, MongoDB, Redis, GraphQL\nplatform    : Docker, AWS, Git, Linux',
+    'languages : TypeScript, JavaScript, HTML/CSS, Sass\nfrontend  : Vue, Nuxt, React, Angular, Tailwind, Vite\nbackend   : Node.js, NestJS, Express, REST, GraphQL, WebSockets\ndata      : PostgreSQL, TypeORM, MongoDB, Redis\nplatform  : Docker, Kubernetes, Linux, Nginx, CI/CD, Git',
   projects: () =>
-    '01 Real-time Data Platform   <span class="muted">react · websockets · node</span>\n02 Developer Toolkit         <span class="muted">go · cli · oss</span>\n03 AI Review Assistant       <span class="muted">python · llm · apis</span>\n04 Privacy-first Finance App <span class="muted">next.js · sqlite · pwa</span>\ntype <span class="accent">gui</span> to view them visually.',
+    'Most of my work lives in private, production codebases,\nso there\'s not much to show publicly — yet.',
   contact: () =>
-    'email   : itamar.klein@example.com\ngithub  : github.com/itamarkln-dev\nlinkedin: /in/itamar-klein',
-  socials: () => 'github.com/itamarkln-dev\nlinkedin.com/in/itamar-klein\nx.com/itamar',
+    'email    : <span class="accent">itamarkln.dev@gmail.com</span>\ngithub   : github.com/itamarkln-dev\nlinkedin : linkedin.com/in/itamar-klein-8b56971a1',
   whoami: () => 'itamar-klein',
 }
 

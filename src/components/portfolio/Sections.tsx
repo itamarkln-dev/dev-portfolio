@@ -5,36 +5,12 @@ const GITHUB_USER = 'https://github.com/itamarkln-dev'
 const GITHUB_REPOS = 'https://github.com/itamarkln-dev?tab=repositories'
 const LINKEDIN_URL = 'https://www.linkedin.com/in/itamar-klein-8b56971a1/'
 
-const PROJECTS = [
-  {
-    n: '01',
-    cat: 'web app',
-    title: 'Real-time Data Platform',
-    desc: 'A live dashboard that turns streaming data into an instant, clear picture — ↓ 80% reporting time.',
-    tags: ['React', 'WebSockets', 'Node', 'D3'],
-  },
-  {
-    n: '02',
-    cat: 'open source',
-    title: 'Developer Toolkit',
-    desc: 'A free, zero-config CLI that scaffolds, tests, and deploys apps in minutes — 40+ contributors.',
-    tags: ['Go', 'CLI', 'DX'],
-  },
-  {
-    n: '03',
-    cat: 'ai / tooling',
-    title: 'AI Review Assistant',
-    desc: 'Automatically reviews new work for issues and suggests improvements — ~6 hrs/week saved.',
-    tags: ['Python', 'LLM', 'APIs'],
-  },
-  {
-    n: '04',
-    cat: 'mobile',
-    title: 'Privacy-first Finance App',
-    desc: 'Helps people understand their spending with clear visuals — local-first, no sign-up, no tracking.',
-    tags: ['Next.js', 'SQLite', 'PWA'],
-  },
-]
+type Project = { n: string; cat: string; title: string; desc: string; tags: string[] }
+
+// No public projects to show yet — repopulate this array to bring the project
+// cards back automatically. Shape:
+//   { n: '01', cat: 'web app', title: '…', desc: '…', tags: ['React', 'Node'] }
+const PROJECTS: Project[] = []
 
 const DEVICON = 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons'
 
@@ -246,31 +222,48 @@ function Projects() {
         <div className="kick">Portfolio</div>
         <h2 className="title">Selected works.</h2>
         <p className="sub">
-          A curated selection of projects that made me confident building software.
+          {PROJECTS.length
+            ? 'A curated selection of projects that made me confident building software.'
+            : 'Public case studies are on the way — here is what to expect.'}
         </p>
       </div>
-      <div className="pgrid">
-        {PROJECTS.map((p) => (
-          <div key={p.n} className="pcard reveal">
-            <span className="pn">{p.n}</span>
-            <span className="cat">{p.cat}</span>
-            <h3>
-              {p.title} <a href="#">↗</a>
-            </h3>
-            <p>{p.desc}</p>
-            <div className="tags">
-              {p.tags.map((t) => (
-                <span key={t} className="tag">
-                  {t}
-                </span>
-              ))}
+
+      {PROJECTS.length ? (
+        <div className="pgrid">
+          {PROJECTS.map((p) => (
+            <div key={p.n} className="pcard reveal">
+              <span className="pn">{p.n}</span>
+              <span className="cat">{p.cat}</span>
+              <h3>
+                {p.title} <a href="#">↗</a>
+              </h3>
+              <p>{p.desc}</p>
+              <div className="tags">
+                {p.tags.map((t) => (
+                  <span key={t} className="tag">
+                    {t}
+                  </span>
+                ))}
+              </div>
             </div>
-          </div>
-        ))}
-      </div>
-      <a className="allbtn reveal" href={GITHUB_REPOS} target="_blank" rel="noopener">
-        Explore all on GitHub ↗
-      </a>
+          ))}
+        </div>
+      ) : (
+        <div className="pcard pbuilding reveal">
+          <span className="cat">in progress</span>
+          <h3>Public case studies are on the way</h3>
+          <p>
+            Most of my work lives in private, production codebases. I'm putting together a few
+            public projects and write-ups — check back soon, new work is on the way.
+          </p>
+        </div>
+      )}
+
+      {PROJECTS.length > 0 && (
+        <a className="allbtn reveal" href={GITHUB_REPOS} target="_blank" rel="noopener">
+          Explore all on GitHub ↗
+        </a>
+      )}
     </section>
   )
 }
