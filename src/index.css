@@ -132,12 +132,10 @@ a {
 @keyframes pulseSlow {
   0%,
   100% {
-    opacity: 0.6;
-    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.55;
   }
   50% {
     opacity: 1;
-    transform: translate(-50%, -50%) scale(1.1);
   }
 }
 .bg .vig {
@@ -966,6 +964,10 @@ body.term .terminal {
    (that full-page reflow made closing feel slow) — just lock background scroll. */
 body.term {
   overflow: hidden;
+}
+/* Stop rendering the animated background blur while the terminal covers it. */
+body.term .bg {
+  display: none;
 }
 .term-bar {
   display: flex;
