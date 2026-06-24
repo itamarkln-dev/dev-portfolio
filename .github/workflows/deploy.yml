@@ -25,12 +25,21 @@ jobs:
       - name: Pull production env vars from Vercel
         run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
 
-      # Expose the pulled VITE_* vars as a root .env so Vite bakes them into the build.
-      - name: Expose env to the build
-        run: cp .vercel/.env.production.local .env
+      # Export the pulled VITE_* vars into the build process so Vite bakes them in.
+      - name: Build with project env vars
+        run: |
+          set -a
+          . ./.vercel/.env.production.local
+          set +a
+          vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
 
-      - name: Build
-        run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
+      - name: Verify env baked into build
+        run: |
+          if grep -rlq "itamarkln-dev" .vercel/output; then
+            echo "✓ links baked into build output"
+          else
+            echo "✗ links missing from build output"; exit 1
+          fi
 
       - name: Deploy prebuilt output to production
         run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
