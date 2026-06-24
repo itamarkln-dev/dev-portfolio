@@ -195,25 +195,25 @@ nav.scrolled .navbar-inner {
   align-items: center;
   justify-content: center;
   color: var(--primary);
+  font-weight: 900;
+  font-size: 16px;
+  letter-spacing: -0.04em;
   transition: 0.3s;
 }
 .logo:hover .box {
   border-color: rgba(59, 130, 246, 0.5);
 }
 .logo .wm {
-  font-weight: 900;
-  font-size: 24px;
-  letter-spacing: -0.05em;
-  text-transform: uppercase;
+  font-weight: 800;
+  font-size: 19px;
+  letter-spacing: -0.02em;
   position: relative;
 }
-.logo .wm small {
-  font-size: 16px;
-  font-weight: 900;
+.logo .wm .last {
   color: var(--zinc-500);
   transition: 0.3s;
 }
-.logo:hover .wm small {
+.logo:hover .wm .last {
   color: var(--primary);
 }
 .logo .wm::after {
@@ -1116,6 +1116,9 @@ body.term .watermark {
   }
   .nav-btn {
     padding: 8px;
+  }
+  .logo .wm {
+    display: none;
   }
 }
 

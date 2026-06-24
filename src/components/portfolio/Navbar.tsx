@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { CloseIcon, LogoCode, MenuIcon, MoonIcon, SunIcon, TerminalIcon } from './icons'
+import { CloseIcon, MenuIcon, MoonIcon, SunIcon, TerminalIcon } from './icons'
 
 const LINKS = [
   { id: 'home', label: 'Home' },
@@ -54,11 +54,9 @@ export default function Navbar({ onOpenTerm }: { onOpenTerm: () => void }) {
       <div className="navbar">
         <div className="navbar-inner">
           <a href="#home" className="logo">
-            <span className="box">
-              <LogoCode />
-            </span>
+            <span className="box">IK</span>
             <span className="wm">
-              IK<small>LEIN</small>
+              Itamar <span className="last">Klein</span>
             </span>
           </a>
 
