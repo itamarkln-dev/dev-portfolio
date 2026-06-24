@@ -42,7 +42,11 @@ export default function Terminal({ open, onClose }: { open: boolean; onClose: ()
       setLines(BOOT_LINES)
       setBooted(true)
     }
-    if (open) setTimeout(() => inputRef.current?.focus(), 60)
+    // Only auto-focus on desktop (fine pointer). On touch devices this would
+    // pop the on-screen keyboard, whose dismissal makes "exit" feel laggy.
+    if (open && window.matchMedia('(pointer: fine)').matches) {
+      setTimeout(() => inputRef.current?.focus(), 60)
+    }
   }, [open, booted])
 
   useEffect(() => {
