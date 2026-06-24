@@ -944,9 +944,6 @@ footer .fl {
 }
 
 /* ===== TERMINAL MODE ===== */
-body.term .bg .glow {
-  background: rgba(34, 197, 94, 0.12);
-}
 .terminal {
   position: fixed;
   inset: 0;
@@ -965,10 +962,9 @@ body.term .terminal {
 body.term {
   overflow: hidden;
 }
-/* Stop rendering the animated background blur while the terminal covers it. */
-body.term .bg {
-  display: none;
-}
+/* Keep .bg painted behind the opaque terminal. Hiding it (display:none) discards
+   the blur(120px) glow layer, so closing forces iOS Safari to re-rasterize that
+   huge blur — which froze the "exit" tap for seconds on real devices. */
 .term-bar {
   display: flex;
   align-items: center;
