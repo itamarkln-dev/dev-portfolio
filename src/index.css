@@ -962,12 +962,10 @@ body.term .bg .glow {
 body.term .terminal {
   display: flex;
 }
-body.term nav,
-body.term .hero,
-body.term section.block,
-body.term footer,
-body.term .watermark {
-  display: none !important;
+/* The terminal is an opaque full-screen overlay, so we don't tear down the GUI
+   (that full-page reflow made closing feel slow) — just lock background scroll. */
+body.term {
+  overflow: hidden;
 }
 .term-bar {
   display: flex;
@@ -1035,6 +1033,8 @@ body.term .watermark {
   display: flex;
   gap: 8px;
   align-items: center;
+  /* 16px min so iOS Safari doesn't auto-zoom when the input is focused */
+  font-size: 16px;
 }
 .terminal .pr {
   color: var(--term-accent);
@@ -1047,7 +1047,7 @@ body.term .watermark {
   outline: none;
   color: var(--term-cmd);
   font-family: var(--mono);
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .reveal {
