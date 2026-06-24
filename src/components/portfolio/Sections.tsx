@@ -355,7 +355,7 @@ function Contact() {
 function Footer() {
   return (
     <footer className="wrap">
-      <span>© 2026 Itamar Klein</span>
+      <span>© {new Date().getFullYear()} Itamar Klein</span>
       <span>built with care</span>
     </footer>
   )
