@@ -1,9 +1,7 @@
 import { GithubMark, LinkedinMark, MailIcon, SendIcon } from './icons'
 import Typewriter from './Typewriter'
 
-const GITHUB_USER = 'https://github.com/itamarkln-dev'
-const GITHUB_REPOS = 'https://github.com/itamarkln-dev?tab=repositories'
-const LINKEDIN_URL = 'https://www.linkedin.com/in/itamar-klein-8b56971a1/'
+import { SITE } from '../../config'
 
 type Project = { n: string; cat: string; title: string; desc: string; tags: string[] }
 
@@ -260,7 +258,7 @@ function Projects() {
       )}
 
       {PROJECTS.length > 0 && (
-        <a className="allbtn reveal" href={GITHUB_REPOS} target="_blank" rel="noopener">
+        <a className="allbtn reveal" href={SITE.githubReposUrl} target="_blank" rel="noopener">
           Explore all on GitHub ↗
         </a>
       )}
@@ -333,11 +331,11 @@ function Contact() {
           you're working on — I usually reply within a day or two.
         </p>
         <div className="csoc" style={{ justifyContent: 'center', marginTop: '28px' }}>
-          <a href={GITHUB_USER} target="_blank" rel="noopener" aria-label="GitHub" title="GitHub">
+          <a href={SITE.githubUrl} target="_blank" rel="noopener" aria-label="GitHub" title="GitHub">
             <GithubMark />
           </a>
           <a
-            href={LINKEDIN_URL}
+            href={SITE.linkedinUrl}
             target="_blank"
             rel="noopener"
             aria-label="LinkedIn"
@@ -345,7 +343,7 @@ function Contact() {
           >
             <LinkedinMark />
           </a>
-          <a href="mailto:itamarkln.dev@gmail.com" aria-label="Gmail" title="Gmail">
+          <a href={`mailto:${SITE.email}`} aria-label="Gmail" title="Gmail">
             <MailIcon />
           </a>
         </div>

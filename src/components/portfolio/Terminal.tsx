@@ -1,10 +1,14 @@
 import { useEffect, useRef, useState } from 'react'
+import { SITE } from '../../config'
 
 const PROMPT = 'itamar@portfolio:~$'
 
 function escapeHtml(s: string) {
   return s.replace(/[&<>]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' })[c] as string)
 }
+
+// strip protocol + trailing slash for compact terminal display
+const short = (url: string) => url.replace(/^https?:\/\//, '').replace(/\/$/, '')
 
 const CMDS: Record<string, () => string> = {
   help: () =>
@@ -16,7 +20,7 @@ const CMDS: Record<string, () => string> = {
   projects: () =>
     'Most of my work lives in private, production codebases,\nso there\'s not much to show publicly — yet.',
   contact: () =>
-    'email    : <span class="accent">itamarkln.dev@gmail.com</span>\ngithub   : github.com/itamarkln-dev\nlinkedin : linkedin.com/in/itamar-klein-8b56971a1',
+    `email    : <span class="accent">${SITE.email}</span>\ngithub   : ${short(SITE.githubUrl)}\nlinkedin : ${short(SITE.linkedinUrl)}`,
   whoami: () => 'itamar-klein',
 }
 
