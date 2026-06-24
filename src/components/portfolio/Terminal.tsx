@@ -8,7 +8,7 @@ function escapeHtml(s: string) {
 }
 
 // strip protocol + trailing slash for compact terminal display
-const short = (url: string) => url.replace(/^https?:\/\//, '').replace(/\/$/, '')
+const short = (url = '') => url.replace(/^https?:\/\//, '').replace(/\/$/, '')
 
 const CMDS: Record<string, () => string> = {
   help: () =>
