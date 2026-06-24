@@ -83,10 +83,10 @@ export default function Terminal({ open, onClose }: { open: boolean; onClose: ()
           type="button"
           className="exit"
           aria-label="Exit terminal"
-          onPointerDown={(e) => {
-            // close on pointer-down so the tap isn't swallowed by the mobile
-            // keyboard dismissal (which delays the click on touch devices)
-            e.preventDefault()
+          onPointerDown={() => {
+            // Hide the overlay synchronously for an instant close, rather than
+            // waiting for React's state -> effect -> class-toggle cycle.
+            document.body.classList.remove('term')
             inputRef.current?.blur()
             onClose()
           }}
