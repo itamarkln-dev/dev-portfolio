@@ -22,6 +22,15 @@ jobs:
       - name: Install Vercel CLI
         run: npm install -g vercel@latest
 
-      # Build on Vercel so the project's VITE_* env vars are injected.
-      - name: Deploy to production
-        run: vercel deploy --prod --token=${{ secrets.VERCEL_TOKEN }}
+      - name: Pull production env vars from Vercel
+        run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
+
+      # Expose the pulled VITE_* vars as a root .env so Vite bakes them into the build.
+      - name: Expose env to the build
+        run: cp .vercel/.env.production.local .env
+
+      - name: Build
+        run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
+
+      - name: Deploy prebuilt output to production
+        run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
