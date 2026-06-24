@@ -79,9 +79,21 @@ export default function Terminal({ open, onClose }: { open: boolean; onClose: ()
         <span className="dot y" />
         <span className="dot g" />
         <span className="ttl">itamar@portfolio: ~</span>
-        <span className="exit" onClick={onClose}>
+        <button
+          type="button"
+          className="exit"
+          aria-label="Exit terminal"
+          onPointerDown={(e) => {
+            // close on pointer-down so the tap isn't swallowed by the mobile
+            // keyboard dismissal (which delays the click on touch devices)
+            e.preventDefault()
+            inputRef.current?.blur()
+            onClose()
+          }}
+          onClick={onClose}
+        >
           exit GUI ✕
-        </span>
+        </button>
       </div>
       <div className="term-body" ref={bodyRef} onClick={() => inputRef.current?.focus()}>
         {lines.map((html, i) => (

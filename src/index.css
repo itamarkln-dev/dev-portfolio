@@ -1003,6 +1003,10 @@ body.term .watermark {
   border: 1px solid var(--term-border);
   border-radius: 7px;
   padding: 3px 10px;
+  background: none;
+  font: inherit;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
 }
 .term-bar .exit:hover {
   background: var(--term-hover);
