@@ -1,0 +1,32 @@
+name: Deploy to Vercel
+
+on:
+  push:
+    branches: [main]
+
+# Project identifiers (not secrets). Only VERCEL_TOKEN is a GitHub secret.
+env:
+  VERCEL_ORG_ID: team_mrh9eyx7XcT6qaADTV3zHJMb
+  VERCEL_PROJECT_ID: prj_wyS6seBspgUC7b9SBDvtdhkGCvdw
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install Vercel CLI
+        run: npm install -g vercel@latest
+
+      - name: Pull Vercel project settings & env vars
+        run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
+
+      - name: Build (bakes in VITE_* env vars)
+        run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
+
+      - name: Deploy prebuilt output to production
+        run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
