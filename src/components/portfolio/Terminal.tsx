@@ -87,14 +87,13 @@ export default function Terminal({ open, onClose }: { open: boolean; onClose: ()
           type="button"
           className="exit"
           aria-label="Exit terminal"
-          onPointerDown={() => {
-            // Hide the overlay synchronously for an instant close, rather than
-            // waiting for React's state -> effect -> class-toggle cycle.
-            document.body.classList.remove('term')
+          // Close on click (not pointerdown): closing on pointerdown hid the
+          // terminal before the tap released, so the click landed on the navbar
+          // button revealed underneath and popped the nav menu open.
+          onClick={() => {
             inputRef.current?.blur()
             onClose()
           }}
-          onClick={onClose}
         >
           exit GUI ✕
         </button>
