@@ -66,7 +66,12 @@ body.light .bg .vig {
   background: radial-gradient(circle at center, transparent, rgba(246, 247, 251, 0.5) 60%, var(--bg));
 }
 body.light .bg .glow {
-  background: rgba(37, 99, 235, 0.1);
+  background: radial-gradient(
+    circle at center,
+    rgba(37, 99, 235, 0.12) 0%,
+    rgba(37, 99, 235, 0.04) 35%,
+    transparent 70%
+  );
 }
 * {
   box-sizing: border-box;
@@ -121,12 +126,18 @@ a {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 60%;
-  height: 60%;
+  width: 90%;
+  height: 90%;
   transform: translate(-50%, -50%);
-  background: rgba(37, 99, 235, 0.15);
-  filter: blur(120px);
-  border-radius: 50%;
+  /* A radial-gradient mimics the old filter: blur(120px) glow at ~zero raster
+     cost. The blur forced iOS Safari to re-rasterize a huge surface every time
+     the GUI was revealed (e.g. closing the terminal), freezing for seconds. */
+  background: radial-gradient(
+    circle at center,
+    rgba(37, 99, 235, 0.18) 0%,
+    rgba(37, 99, 235, 0.06) 35%,
+    transparent 70%
+  );
   animation: pulseSlow 7s ease-in-out infinite;
 }
 @keyframes pulseSlow {
